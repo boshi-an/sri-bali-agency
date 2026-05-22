@@ -1,0 +1,272 @@
+[
+  {
+    "id": "spiritual",
+    "icon": "🕌",
+    "name": "Spiritual Journey",
+    "tagline": "Connect with Bali's sacred soul — ancient temples, holy water, and rice terrace blessings",
+    "routes": [
+      {
+        "name": "Temple Pilgrimage",
+        "duration": "8 hours",
+        "basePrice": "$65",
+        "stops": [
+          "Tanah Lot Temple",
+          "Pura Uluwatu",
+          "Pura Luhur Batukaru"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",    "cost": "$65" },
+          { "item": "Temple entrance fees",   "cost": "~$10–15 extra" },
+          { "item": "Fuel & parking",         "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Holy Water & Rice",
+        "duration": "7 hours",
+        "basePrice": "$55",
+        "stops": [
+          "Tirta Empul (holy spring)",
+          "Tegallalang Rice Terraces",
+          "Gunung Kawi Temple"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",    "cost": "$55" },
+          { "item": "Temple entrance fees",   "cost": "~$8–12 extra" },
+          { "item": "Fuel & parking",         "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Sunrise Temple",
+        "duration": "6 hours",
+        "basePrice": "$60",
+        "stops": [
+          "Pura Besakih (Mother Temple)",
+          "Penglipuran Village",
+          "Candidasa"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",    "cost": "$60" },
+          { "item": "Temple entrance fees",   "cost": "~$8–10 extra" },
+          { "item": "Fuel & parking",         "cost": "Included" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adventure",
+    "icon": "🏔️",
+    "name": "Adventure Thrills",
+    "tagline": "Volcanic peaks, hidden waterfalls, and wild east coast landscapes",
+    "routes": [
+      {
+        "name": "Volcano & Crater",
+        "duration": "9 hours",
+        "basePrice": "$75",
+        "stops": [
+          "Mount Batur Viewpoint",
+          "Kintamani Caldera",
+          "Batur Lake"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",      "cost": "$75" },
+          { "item": "Trekking guide (optional)", "cost": "~$30 extra" },
+          { "item": "Fuel & water",             "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Waterfall Circuit",
+        "duration": "8 hours",
+        "basePrice": "$70",
+        "stops": [
+          "Sekumpul Waterfall",
+          "Gitgit Waterfall",
+          "Leke Leke Waterfall"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$70" },
+          { "item": "Entrance fees",       "cost": "~$5–8 extra" },
+          { "item": "Fuel & water",        "cost": "Included" }
+        ]
+      },
+      {
+        "name": "East Bali Wild",
+        "duration": "8 hours",
+        "basePrice": "$70",
+        "stops": [
+          "Amed Beach",
+          "Mount Agung Viewpoint",
+          "Tirta Gangga Water Palace"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$70" },
+          { "item": "Entrance fees",       "cost": "~$5 extra" },
+          { "item": "Fuel & water",        "cost": "Included" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cultural",
+    "icon": "🎭",
+    "name": "Cultural Immersion",
+    "tagline": "Craft villages, royal palaces, and living Balinese traditions",
+    "routes": [
+      {
+        "name": "Ubud Arts & Crafts",
+        "duration": "7 hours",
+        "basePrice": "$55",
+        "stops": [
+          "Ubud Royal Palace",
+          "Ubud Art Market",
+          "Celuk Silver Village",
+          "Mas Wood Carving Village"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",   "cost": "$55" },
+          { "item": "Museum/palace entrance", "cost": "~$5 extra" },
+          { "item": "Fuel & parking",        "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Royal Klungkung",
+        "duration": "7 hours",
+        "basePrice": "$60",
+        "stops": [
+          "Klungkung Palace",
+          "Kertha Gosa (Hall of Justice)",
+          "Sidemen Valley",
+          "Pura Besakih"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",   "cost": "$60" },
+          { "item": "Museum/palace entrance", "cost": "~$5–8 extra" },
+          { "item": "Fuel & parking",        "cost": "Included" }
+        ]
+      },
+      {
+        "name": "North Bali Heritage",
+        "duration": "8 hours",
+        "basePrice": "$65",
+        "stops": [
+          "Singaraja Old Town",
+          "Puri Agung Singaraja",
+          "Munduk Spice Farm"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$65" },
+          { "item": "Museum entrance",     "cost": "~$3–5 extra" },
+          { "item": "Fuel & parking",      "cost": "Included" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "beach",
+    "icon": "🏖️",
+    "name": "Beach & Sunset",
+    "tagline": "Pristine coves, surf breaks, and the world's most famous sunsets",
+    "routes": [
+      {
+        "name": "Seminyak Sunset Strip",
+        "duration": "6 hours",
+        "basePrice": "$50",
+        "stops": [
+          "Seminyak Beach",
+          "Petitenget Temple",
+          "La Plancha sunset spot"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$50" },
+          { "item": "Temple entrance",     "cost": "~$2–3 extra" },
+          { "item": "Fuel & parking",      "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Uluwatu Cliffs & Kecak",
+        "duration": "7 hours",
+        "basePrice": "$60",
+        "stops": [
+          "Padang Padang Beach",
+          "Pura Uluwatu",
+          "Kecak Fire Dance (at sunset)"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$60" },
+          { "item": "Kecak dance ticket",  "cost": "~$10 extra" },
+          { "item": "Fuel & parking",      "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Hidden Beach Hop",
+        "duration": "8 hours",
+        "basePrice": "$65",
+        "stops": [
+          "Nusa Dua Beach",
+          "Pandawa Beach",
+          "Green Bowl Beach",
+          "Balangan Beach"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$65" },
+          { "item": "Beach parking fees",  "cost": "~$3–5 extra" },
+          { "item": "Fuel",               "cost": "Included" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nature",
+    "icon": "🌿",
+    "name": "Nature & Wildlife",
+    "tagline": "Jungle treks, rice terraces, ancient forests, and primate encounters",
+    "routes": [
+      {
+        "name": "Monkey Forest & Jungle",
+        "duration": "6 hours",
+        "basePrice": "$50",
+        "stops": [
+          "Sacred Monkey Forest, Ubud",
+          "Campuhan Ridge Walk",
+          "Jatiluwih Rice Terraces"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$50" },
+          { "item": "Forest entrance",     "cost": "~$5–8 extra" },
+          { "item": "Fuel & parking",      "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Bali Aga & Birds",
+        "duration": "8 hours",
+        "basePrice": "$65",
+        "stops": [
+          "Bali Bird Park",
+          "Batubulan Barong Dance",
+          "Taman Ayun Temple",
+          "Menjangan Area"
+        ],
+        "pricing": [
+          { "item": "Private car + guide",   "cost": "$65" },
+          { "item": "Park & dance tickets",  "cost": "~$20–25 extra" },
+          { "item": "Fuel & parking",        "cost": "Included" }
+        ]
+      },
+      {
+        "name": "Highland Lakes",
+        "duration": "8 hours",
+        "basePrice": "$65",
+        "stops": [
+          "Lake Beratan & Ulun Danu Temple",
+          "Lake Buyan",
+          "Lake Tamblingan",
+          "Bedugul Botanical Garden"
+        ],
+        "pricing": [
+          { "item": "Private car + guide", "cost": "$65" },
+          { "item": "Entrance fees",       "cost": "~$5–8 extra" },
+          { "item": "Fuel & parking",      "cost": "Included" }
+        ]
+      }
+    ]
+  }
+]

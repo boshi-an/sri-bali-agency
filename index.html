@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sri Bali Agency — Private car tours in Bali by a Balinese family. Spiritual, Adventure, Cultural, Beach & Nature packages with local guide Sri.">
+  <meta name="description" content="Sri Bali Agency — Private car tours in Bali by a Balinese family. Spiritual, Adventure, Cultural, Beach &amp; Nature packages with local guide Sri.">
   <title>Sri Bali Agency — Private Car Tours in Bali</title>
 
   <!-- Dark mode flash prevention: must run before CSS applies -->
@@ -16,8 +16,7 @@
   </script>
 
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,9 +35,6 @@
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       HEADER / NAV
-  ══════════════════════════════════════ -->
   <header class="site-header">
     <nav class="nav container">
       <a href="#hero" class="nav-logo">
@@ -62,9 +58,6 @@
     </nav>
   </header>
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
   <section id="hero" class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -79,9 +72,6 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════ -->
   <section id="about" class="about">
     <div class="container about-grid">
       <div class="about-photo">
@@ -104,9 +94,6 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       PACKAGES
-  ══════════════════════════════════════ -->
   <section id="packages" class="packages">
     <div class="container">
       <span class="section-label">Curated Experiences</span>
@@ -114,18 +101,17 @@
       <p class="section-subtitle">Five curated experiences, each with multiple route options. All prices include private car, guide, and fuel.</p>
 
       <div class="tabs" role="tablist" aria-label="Tour packages">
-        <button class="tab-btn active" data-tab="spiritual" role="tab" aria-selected="true"  aria-controls="tab-spiritual">🕌 Spiritual</button>
-        <button class="tab-btn"        data-tab="adventure" role="tab" aria-selected="false" aria-controls="tab-adventure">🏔️ Adventure</button>
-        <button class="tab-btn"        data-tab="cultural"  role="tab" aria-selected="false" aria-controls="tab-cultural">🎭 Cultural</button>
-        <button class="tab-btn"        data-tab="beach"     role="tab" aria-selected="false" aria-controls="tab-beach">🏖️ Beach &amp; Sunset</button>
-        <button class="tab-btn"        data-tab="nature"    role="tab" aria-selected="false" aria-controls="tab-nature">🌿 Nature</button>
+        <button class="tab-btn active" data-tab="spiritual" role="tab" aria-selected="true" aria-controls="tab-spiritual">🕌 Spiritual Journey</button>
+        <button class="tab-btn" data-tab="adventure" role="tab" aria-selected="false" aria-controls="tab-adventure">🏔️ Adventure Thrills</button>
+        <button class="tab-btn" data-tab="cultural" role="tab" aria-selected="false" aria-controls="tab-cultural">🎭 Cultural Immersion</button>
+        <button class="tab-btn" data-tab="beach" role="tab" aria-selected="false" aria-controls="tab-beach">🏖️ Beach &amp; Sunset</button>
+        <button class="tab-btn" data-tab="nature" role="tab" aria-selected="false" aria-controls="tab-nature">🌿 Nature &amp; Wildlife</button>
       </div>
 
-      <!-- ── SPIRITUAL ── -->
       <div id="tab-spiritual" class="tab-panel active" role="tabpanel">
         <div class="package-header">
           <h3>Spiritual Journey</h3>
-          <p>Connect with Bali's sacred soul — ancient temples, holy water, and rice terrace blessings</p>
+          <p>Connect with Bali&#x27;s sacred soul — ancient temples, holy water, and rice terrace blessings</p>
         </div>
         <div class="routes-list">
 
@@ -199,7 +185,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Spiritual Journey" data-wa-route="Holy Water and Rice">
+                          data-wa-package="Spiritual Journey" data-wa-route="Holy Water &amp; Rice">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -245,11 +231,9 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── ADVENTURE ── -->
       <div id="tab-adventure" class="tab-panel" role="tabpanel">
         <div class="package-header">
           <h3>Adventure Thrills</h3>
@@ -288,7 +272,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Adventure Thrills" data-wa-route="Volcano and Crater">
+                          data-wa-package="Adventure Thrills" data-wa-route="Volcano &amp; Crater">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -373,11 +357,9 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── CULTURAL ── -->
       <div id="tab-cultural" class="tab-panel" role="tabpanel">
         <div class="package-header">
           <h3>Cultural Immersion</h3>
@@ -417,7 +399,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Cultural Immersion" data-wa-route="Ubud Arts and Crafts">
+                          data-wa-package="Cultural Immersion" data-wa-route="Ubud Arts &amp; Crafts">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -503,15 +485,13 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── BEACH & SUNSET ── -->
       <div id="tab-beach" class="tab-panel" role="tabpanel">
         <div class="package-header">
           <h3>Beach &amp; Sunset</h3>
-          <p>Pristine coves, surf breaks, and the world's most famous sunsets</p>
+          <p>Pristine coves, surf breaks, and the world&#x27;s most famous sunsets</p>
         </div>
         <div class="routes-list">
 
@@ -546,7 +526,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Beach and Sunset" data-wa-route="Seminyak Sunset Strip">
+                          data-wa-package="Beach &amp; Sunset" data-wa-route="Seminyak Sunset Strip">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -585,7 +565,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Beach and Sunset" data-wa-route="Uluwatu Cliffs and Kecak">
+                          data-wa-package="Beach &amp; Sunset" data-wa-route="Uluwatu Cliffs &amp; Kecak">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -625,18 +605,16 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Beach and Sunset" data-wa-route="Hidden Beach Hop">
+                          data-wa-package="Beach &amp; Sunset" data-wa-route="Hidden Beach Hop">
                     📱 Book via WhatsApp
                   </button>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- ── NATURE ── -->
       <div id="tab-nature" class="tab-panel" role="tabpanel">
         <div class="package-header">
           <h3>Nature &amp; Wildlife</h3>
@@ -675,7 +653,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Nature and Wildlife" data-wa-route="Monkey Forest and Jungle">
+                          data-wa-package="Nature &amp; Wildlife" data-wa-route="Monkey Forest &amp; Jungle">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -715,7 +693,7 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Nature and Wildlife" data-wa-route="Bali Aga and Birds">
+                          data-wa-package="Nature &amp; Wildlife" data-wa-route="Bali Aga &amp; Birds">
                     📱 Book via WhatsApp
                   </button>
                 </div>
@@ -755,23 +733,19 @@
                     </tbody></table>
                   </div>
                   <button class="btn btn-whatsapp wa-book-btn"
-                          data-wa-package="Nature and Wildlife" data-wa-route="Highland Lakes">
+                          data-wa-package="Nature &amp; Wildlife" data-wa-route="Highland Lakes">
                     📱 Book via WhatsApp
                   </button>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       MAP
-  ══════════════════════════════════════ -->
   <section id="map" class="map-section">
     <div class="container">
       <span class="section-label">Explore the Island</span>
@@ -788,9 +762,6 @@
     <div id="bali-map" aria-label="Interactive map of Bali tour locations"></div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════ -->
   <section id="contact" class="contact">
     <div class="container">
       <span class="section-label">Get in Touch</span>
@@ -829,9 +800,6 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -853,11 +821,12 @@
     </svg>
   </a>
 
-  <!-- Leaflet JS (must load before map.js) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/sp8=" crossorigin="" defer></script>
+  <script>window.MAP_MARKERS = [{"name":"Tanah Lot Temple","lat":-8.6215,"lng":115.0868,"category":"spiritual","description":"Iconic sea temple perched on a rock formation, best visited at sunset. One of Bali's most photographed landmarks.","photo":"https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80"},{"name":"Pura Uluwatu","lat":-8.8291,"lng":115.0849,"category":"spiritual","description":"Clifftop temple 70m above the Indian Ocean. Evening Kecak fire dance performed at sunset with the ocean as backdrop.","photo":"https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&q=80"},{"name":"Pura Besakih","lat":-8.3742,"lng":115.4517,"category":"spiritual","description":"The \"Mother Temple\" of Bali — the largest and most sacred Hindu temple complex, set on the slopes of Mount Agung.","photo":"https://images.unsplash.com/photo-1604999333679-b86d54738315?w=400&q=80"},{"name":"Tirta Empul","lat":-8.4153,"lng":115.3153,"category":"spiritual","description":"Holy spring temple where Balinese Hindus purify themselves in sacred fountains. A UNESCO-recognised cultural site.","photo":"https://images.unsplash.com/photo-1592364395653-83e648b20cc2?w=400&q=80"},{"name":"Mount Batur","lat":-8.2421,"lng":115.375,"category":"adventure","description":"Active stratovolcano rising to 1,717m. Sunrise trekkers witness clouds below the caldera rim above a dramatic volcanic lake.","photo":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"},{"name":"Sekumpul Waterfall","lat":-8.1656,"lng":115.1597,"category":"adventure","description":"Bali's most spectacular waterfall — seven separate cascades plunging 25m into a lush jungle gorge in North Bali.","photo":"https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&q=80"},{"name":"Tirta Gangga Water Palace","lat":-8.4113,"lng":115.5874,"category":"nature","description":"A former royal water palace with ornate fountains, koi-filled pools, and stepping stones against a Mount Agung backdrop.","photo":"https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=400&q=80"},{"name":"Ubud Royal Palace","lat":-8.5069,"lng":115.2625,"category":"cultural","description":"Puri Saren Agung — the official residence of the Ubud royal family, with traditional Balinese architecture and evening dance performances.","photo":"https://images.unsplash.com/photo-1531084387661-6fa6a8560d2e?w=400&q=80"},{"name":"Tegallalang Rice Terraces","lat":-8.4313,"lng":115.2789,"category":"nature","description":"UNESCO-protected subak irrigation system. The cascading green steps are one of Bali's most iconic and photographed landscapes.","photo":"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"},{"name":"Jatiluwih Rice Terraces","lat":-8.3673,"lng":115.1338,"category":"nature","description":"UNESCO World Heritage subak landscape — broader and wilder than Tegallalang, with 600-year-old irrigation channels still in use.","photo":"https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80"},{"name":"Seminyak Beach","lat":-8.6904,"lng":115.1565,"category":"beach","description":"Bali's most glamorous beach strip — long sandy shore with beach clubs, world-class surf breaks, and legendary sunsets.","photo":"https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400&q=80"},{"name":"Padang Padang Beach","lat":-8.8107,"lng":115.1003,"category":"beach","description":"A secluded cove accessed through a narrow cave passage — white sand, turquoise water, and a world-class surf break.","photo":"https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&q=80"},{"name":"Pandawa Beach","lat":-8.8437,"lng":115.1892,"category":"beach","description":"The \"Secret Beach\" carved into limestone cliffs, with five Pandawa warrior statues sculpted into the cliff face above.","photo":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80"},{"name":"Lake Beratan / Ulun Danu","lat":-8.2748,"lng":115.1673,"category":"nature","description":"Sacred crater lake at 1,200m elevation. The floating Ulun Danu Beratan temple appears to rise from the morning mist.","photo":"https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&q=80"},{"name":"Sacred Monkey Forest, Ubud","lat":-8.5188,"lng":115.2588,"category":"nature","description":"Ancient Hindu temple sanctuary housing 700+ long-tailed macaques amid giant fig trees and moss-covered stone statues.","photo":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"}];</script>
 
-  <!-- Site JS (defer — all execute in order after DOM parsed) -->
+  <!-- Leaflet JS (synchronous — must be defined before deferred site scripts run) -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+
+  <!-- Site JS (defer — execute in order after DOM parsed) -->
   <script src="js/theme.js"     defer></script>
   <script src="js/nav.js"       defer></script>
   <script src="js/tabs.js"      defer></script>
