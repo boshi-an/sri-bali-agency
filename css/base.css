@@ -1,0 +1,111 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #c8882a;
+  --color-primary-dark: #a36c1a;
+  --color-accent: #2a9d8f;
+  --color-accent-dark: #1a7a6f;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1db954;
+
+  --bg-base: #faf7f2;
+  --bg-surface: #ffffff;
+  --bg-card: #f4f0ea;
+  --bg-nav: rgba(250, 247, 242, 0.93);
+
+  --text-primary: #1a1008;
+  --text-secondary: #5a4a38;
+  --text-muted: #9a8a7a;
+
+  --border-color: #e8e0d4;
+  --border-radius: 12px;
+  --border-radius-sm: 6px;
+  --border-radius-lg: 20px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --nav-height: 68px;
+  --transition: 0.25s ease;
+}
+
+[data-theme="dark"] {
+  --bg-base: #0f0b08;
+  --bg-surface: #1a1410;
+  --bg-card: #221c15;
+  --bg-nav: rgba(15, 11, 8, 0.94);
+  --text-primary: #f0e8dc;
+  --text-secondary: #b8a898;
+  --text-muted: #7a6a5a;
+  --border-color: #3a2e22;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.35);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.45);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.55);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}

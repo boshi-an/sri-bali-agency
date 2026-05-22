@@ -1,0 +1,106 @@
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof L === 'undefined') return;
+
+  var markers = [
+    { name: 'Tanah Lot Temple', lat: -8.6215, lng: 115.0868, category: 'spiritual',
+      description: 'Iconic sea temple perched on a rock formation, best visited at sunset. One of Bali\'s most photographed landmarks.',
+      photo: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80' },
+    { name: 'Pura Uluwatu', lat: -8.8291, lng: 115.0849, category: 'spiritual',
+      description: 'Clifftop temple 70m above the Indian Ocean. Evening Kecak fire dance performed at sunset with the ocean as backdrop.',
+      photo: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&q=80' },
+    { name: 'Pura Besakih', lat: -8.3742, lng: 115.4517, category: 'spiritual',
+      description: 'The "Mother Temple" of Bali — the largest and most sacred Hindu temple complex, set on the slopes of Mount Agung.',
+      photo: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?w=400&q=80' },
+    { name: 'Tirta Empul', lat: -8.4153, lng: 115.3153, category: 'spiritual',
+      description: 'Holy spring temple where Balinese Hindus purify themselves in sacred fountains. A UNESCO-recognised cultural site.',
+      photo: 'https://images.unsplash.com/photo-1592364395653-83e648b20cc2?w=400&q=80' },
+    { name: 'Mount Batur', lat: -8.2421, lng: 115.3750, category: 'adventure',
+      description: 'Active stratovolcano rising to 1,717m. Sunrise trekkers witness clouds below the caldera rim above a dramatic volcanic lake.',
+      photo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80' },
+    { name: 'Sekumpul Waterfall', lat: -8.1656, lng: 115.1597, category: 'adventure',
+      description: 'Bali\'s most spectacular waterfall — seven separate cascades plunging 25m into a lush jungle gorge in North Bali.',
+      photo: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&q=80' },
+    { name: 'Tirta Gangga Water Palace', lat: -8.4113, lng: 115.5874, category: 'nature',
+      description: 'A former royal water palace with ornate fountains, koi-filled pools, and stepping stones against a Mount Agung backdrop.',
+      photo: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=400&q=80' },
+    { name: 'Ubud Royal Palace', lat: -8.5069, lng: 115.2625, category: 'cultural',
+      description: 'Puri Saren Agung — the official residence of the Ubud royal family, with traditional Balinese architecture and evening dance performances.',
+      photo: 'https://images.unsplash.com/photo-1531084387661-6fa6a8560d2e?w=400&q=80' },
+    { name: 'Tegallalang Rice Terraces', lat: -8.4313, lng: 115.2789, category: 'nature',
+      description: 'UNESCO-protected subak irrigation system. The cascading green steps are one of Bali\'s most iconic and photographed landscapes.',
+      photo: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80' },
+    { name: 'Jatiluwih Rice Terraces', lat: -8.3673, lng: 115.1338, category: 'nature',
+      description: 'UNESCO World Heritage subak landscape — broader and wilder than Tegallalang, with 600-year-old irrigation channels still in use.',
+      photo: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80' },
+    { name: 'Seminyak Beach', lat: -8.6904, lng: 115.1565, category: 'beach',
+      description: 'Bali\'s most glamorous beach strip — long sandy shore with beach clubs, world-class surf breaks, and legendary sunsets.',
+      photo: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400&q=80' },
+    { name: 'Padang Padang Beach', lat: -8.8107, lng: 115.1003, category: 'beach',
+      description: 'A secluded cove accessed through a narrow cave passage — white sand, turquoise water, and a world-class surf break.',
+      photo: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&q=80' },
+    { name: 'Pandawa Beach', lat: -8.8437, lng: 115.1892, category: 'beach',
+      description: 'The "Secret Beach" carved into limestone cliffs, with five Pandawa warrior statues sculpted into the cliff face above.',
+      photo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80' },
+    { name: 'Lake Beratan / Ulun Danu', lat: -8.2748, lng: 115.1673, category: 'nature',
+      description: 'Sacred crater lake at 1,200m elevation. The floating Ulun Danu Beratan temple appears to rise from the morning mist.',
+      photo: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&q=80' },
+    { name: 'Sacred Monkey Forest, Ubud', lat: -8.5188, lng: 115.2588, category: 'nature',
+      description: 'Ancient Hindu temple sanctuary housing 700+ long-tailed macaques amid giant fig trees and moss-covered stone statues.',
+      photo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80' }
+  ];
+
+  var categoryColors = {
+    spiritual: '#c8882a',
+    adventure: '#e63946',
+    cultural:  '#6a4c93',
+    beach:     '#2a9d8f',
+    nature:    '#2d6a4f'
+  };
+
+  var map = L.map('bali-map', {
+    center: [-8.5, 115.25],
+    zoom: 10,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(map);
+
+  markers.forEach(function (m) {
+    var circle = L.circleMarker([m.lat, m.lng], {
+      radius: 10,
+      fillColor: categoryColors[m.category] || '#888',
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.88
+    }).addTo(map);
+
+    var content =
+      '<div class="marker-popup">' +
+        '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' +
+        '<div class="marker-popup-body">' +
+          '<h3>' + m.name + '</h3>' +
+          '<p>' + m.description + '</p>' +
+          '<span class="category-badge category-' + m.category + '">' + m.category + '</span>' +
+        '</div>' +
+      '</div>';
+
+    circle.bindPopup(L.popup({ maxWidth: 280, className: 'custom-popup' }).setContent(content));
+    circle.on('mouseover', function () { this.openPopup(); });
+    circle.on('click', function () { this.openPopup(); });
+  });
+
+  var mapEl = document.getElementById('bali-map');
+  var resized = false;
+  if (mapEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !resized) {
+        map.invalidateSize();
+        resized = true;
+      }
+    }, { threshold: 0.1 }).observe(mapEl);
+  }
+});

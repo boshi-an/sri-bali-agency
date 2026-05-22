@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sri Bali Agency — Private car tours in Bali by a Balinese family. Spiritual, Adventure, Cultural, Beach & Nature packages with local guide Sri.">
+  <title>Sri Bali Agency — Private Car Tours in Bali</title>
+
+  <!-- Dark mode flash prevention: must run before CSS applies -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('sri-bali-theme') ||
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/packages.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       HEADER / NAV
+  ══════════════════════════════════════ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">🌺</span>
+        <span class="logo-text">Sri Bali Agency</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about"    class="nav-link">About</a></li>
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#map"      class="nav-link">Map</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <p class="hero-subtitle">Family-Run Private Car Tours</p>
+      <h1 class="hero-title">Discover Bali<br>with Sri</h1>
+      <p class="hero-desc">Authentic experiences, hidden temples, and unforgettable sunsets — curated by a Balinese family for over 15 years.</p>
+      <div class="hero-cta">
+        <a href="#packages" class="btn btn-primary">Explore Packages</a>
+        <a href="#contact"  class="btn btn-outline">WhatsApp Sri</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <img src="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=700&q=80"
+             alt="Balinese temple scenery representing Sri's tours" loading="lazy">
+      </div>
+      <div class="about-text">
+        <span class="section-label">Your Host</span>
+        <h2>Meet Sri</h2>
+        <p class="lead">Born and raised in Ubud, Sri has been sharing Bali's sacred landscapes with travelers for over 15 years.</p>
+        <p>As a Balinese Hindu, Sri brings you beyond the tourist trail — into temple ceremonies, local warung lunches, and rice paddies his family has tended for generations. Every tour is private; it's just you, your group, and Sri.</p>
+        <ul class="trust-badges">
+          <li>🚗 Comfortable, air-conditioned vehicles</li>
+          <li>🗣️ Fluent English &amp; Balinese</li>
+          <li>⭐ 5-star rated on TripAdvisor</li>
+          <li>🙏 Licensed local guide</li>
+          <li>🗓️ 15+ years experience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PACKAGES
+  ══════════════════════════════════════ -->
+  <section id="packages" class="packages">
+    <div class="container">
+      <span class="section-label">Curated Experiences</span>
+      <h2 class="section-title">Tour Packages</h2>
+      <p class="section-subtitle">Five curated experiences, each with multiple route options. All prices include private car, guide, and fuel.</p>
+
+      <div class="tabs" role="tablist" aria-label="Tour packages">
+        <button class="tab-btn active" data-tab="spiritual" role="tab" aria-selected="true"  aria-controls="tab-spiritual">🕌 Spiritual</button>
+        <button class="tab-btn"        data-tab="adventure" role="tab" aria-selected="false" aria-controls="tab-adventure">🏔️ Adventure</button>
+        <button class="tab-btn"        data-tab="cultural"  role="tab" aria-selected="false" aria-controls="tab-cultural">🎭 Cultural</button>
+        <button class="tab-btn"        data-tab="beach"     role="tab" aria-selected="false" aria-controls="tab-beach">🏖️ Beach &amp; Sunset</button>
+        <button class="tab-btn"        data-tab="nature"    role="tab" aria-selected="false" aria-controls="tab-nature">🌿 Nature</button>
+      </div>
+
+      <!-- ── SPIRITUAL ── -->
+      <div id="tab-spiritual" class="tab-panel active" role="tabpanel">
+        <div class="package-header">
+          <h3>Spiritual Journey</h3>
+          <p>Connect with Bali's sacred soul — ancient temples, holy water, and rice terrace blessings</p>
+        </div>
+        <div class="routes-list">
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Temple Pilgrimage</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $65</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Tanah Lot Temple</li>
+                      <li>Pura Uluwatu</li>
+                      <li>Pura Luhur Batukaru</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$65</strong></td></tr>
+                      <tr><td>Temple entrance fees</td><td>~$10–15 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Spiritual Journey" data-wa-route="Temple Pilgrimage">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Holy Water &amp; Rice</span>
+                <span class="route-duration">⏱ 7 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $55</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Tirta Empul (holy spring)</li>
+                      <li>Tegallalang Rice Terraces</li>
+                      <li>Gunung Kawi Temple</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$55</strong></td></tr>
+                      <tr><td>Temple entrance fees</td><td>~$8–12 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Spiritual Journey" data-wa-route="Holy Water and Rice">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Sunrise Temple</span>
+                <span class="route-duration">⏱ 6 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $60</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Pura Besakih (Mother Temple)</li>
+                      <li>Penglipuran Village</li>
+                      <li>Candidasa</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$60</strong></td></tr>
+                      <tr><td>Temple entrance fees</td><td>~$8–10 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Spiritual Journey" data-wa-route="Sunrise Temple">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── ADVENTURE ── -->
+      <div id="tab-adventure" class="tab-panel" role="tabpanel">
+        <div class="package-header">
+          <h3>Adventure Thrills</h3>
+          <p>Volcanic peaks, hidden waterfalls, and wild east coast landscapes</p>
+        </div>
+        <div class="routes-list">
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Volcano &amp; Crater</span>
+                <span class="route-duration">⏱ 9 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $75</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Mount Batur Viewpoint</li>
+                      <li>Kintamani Caldera</li>
+                      <li>Batur Lake</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$75</strong></td></tr>
+                      <tr><td>Trekking guide (optional)</td><td>~$30 extra</td></tr>
+                      <tr><td>Fuel &amp; water</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Adventure Thrills" data-wa-route="Volcano and Crater">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Waterfall Circuit</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $70</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Sekumpul Waterfall</li>
+                      <li>Gitgit Waterfall</li>
+                      <li>Leke Leke Waterfall</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$70</strong></td></tr>
+                      <tr><td>Entrance fees</td><td>~$5–8 extra</td></tr>
+                      <tr><td>Fuel &amp; water</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Adventure Thrills" data-wa-route="Waterfall Circuit">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">East Bali Wild</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $70</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Amed Beach</li>
+                      <li>Mount Agung Viewpoint</li>
+                      <li>Tirta Gangga Water Palace</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$70</strong></td></tr>
+                      <tr><td>Entrance fees</td><td>~$5 extra</td></tr>
+                      <tr><td>Fuel &amp; water</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Adventure Thrills" data-wa-route="East Bali Wild">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── CULTURAL ── -->
+      <div id="tab-cultural" class="tab-panel" role="tabpanel">
+        <div class="package-header">
+          <h3>Cultural Immersion</h3>
+          <p>Craft villages, royal palaces, and living Balinese traditions</p>
+        </div>
+        <div class="routes-list">
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Ubud Arts &amp; Crafts</span>
+                <span class="route-duration">⏱ 7 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $55</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Ubud Royal Palace</li>
+                      <li>Ubud Art Market</li>
+                      <li>Celuk Silver Village</li>
+                      <li>Mas Wood Carving Village</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$55</strong></td></tr>
+                      <tr><td>Museum/palace entrance</td><td>~$5 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Cultural Immersion" data-wa-route="Ubud Arts and Crafts">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Royal Klungkung</span>
+                <span class="route-duration">⏱ 7 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $60</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Klungkung Palace</li>
+                      <li>Kertha Gosa (Hall of Justice)</li>
+                      <li>Sidemen Valley</li>
+                      <li>Pura Besakih</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$60</strong></td></tr>
+                      <tr><td>Museum/palace entrance</td><td>~$5–8 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Cultural Immersion" data-wa-route="Royal Klungkung">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">North Bali Heritage</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $65</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Singaraja Old Town</li>
+                      <li>Puri Agung Singaraja</li>
+                      <li>Munduk Spice Farm</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$65</strong></td></tr>
+                      <tr><td>Museum entrance</td><td>~$3–5 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Cultural Immersion" data-wa-route="North Bali Heritage">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── BEACH & SUNSET ── -->
+      <div id="tab-beach" class="tab-panel" role="tabpanel">
+        <div class="package-header">
+          <h3>Beach &amp; Sunset</h3>
+          <p>Pristine coves, surf breaks, and the world's most famous sunsets</p>
+        </div>
+        <div class="routes-list">
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Seminyak Sunset Strip</span>
+                <span class="route-duration">⏱ 6 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $50</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Seminyak Beach</li>
+                      <li>Petitenget Temple</li>
+                      <li>La Plancha sunset spot</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$50</strong></td></tr>
+                      <tr><td>Temple entrance</td><td>~$2–3 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Beach and Sunset" data-wa-route="Seminyak Sunset Strip">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Uluwatu Cliffs &amp; Kecak</span>
+                <span class="route-duration">⏱ 7 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $60</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Padang Padang Beach</li>
+                      <li>Pura Uluwatu</li>
+                      <li>Kecak Fire Dance (at sunset)</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$60</strong></td></tr>
+                      <tr><td>Kecak dance ticket</td><td>~$10 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Beach and Sunset" data-wa-route="Uluwatu Cliffs and Kecak">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Hidden Beach Hop</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $65</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Nusa Dua Beach</li>
+                      <li>Pandawa Beach</li>
+                      <li>Green Bowl Beach</li>
+                      <li>Balangan Beach</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$65</strong></td></tr>
+                      <tr><td>Beach parking fees</td><td>~$3–5 extra</td></tr>
+                      <tr><td>Fuel</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Beach and Sunset" data-wa-route="Hidden Beach Hop">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── NATURE ── -->
+      <div id="tab-nature" class="tab-panel" role="tabpanel">
+        <div class="package-header">
+          <h3>Nature &amp; Wildlife</h3>
+          <p>Jungle treks, rice terraces, ancient forests, and primate encounters</p>
+        </div>
+        <div class="routes-list">
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Monkey Forest &amp; Jungle</span>
+                <span class="route-duration">⏱ 6 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $50</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Sacred Monkey Forest, Ubud</li>
+                      <li>Campuhan Ridge Walk</li>
+                      <li>Jatiluwih Rice Terraces</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$50</strong></td></tr>
+                      <tr><td>Forest entrance</td><td>~$5–8 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Nature and Wildlife" data-wa-route="Monkey Forest and Jungle">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Bali Aga &amp; Birds</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $65</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Bali Bird Park</li>
+                      <li>Batubulan Barong Dance</li>
+                      <li>Taman Ayun Temple</li>
+                      <li>Menjangan Area</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$65</strong></td></tr>
+                      <tr><td>Park &amp; dance tickets</td><td>~$20–25 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Nature and Wildlife" data-wa-route="Bali Aga and Birds">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <button class="accordion-header" aria-expanded="false">
+              <div class="route-meta">
+                <span class="route-name">Highland Lakes</span>
+                <span class="route-duration">⏱ 8 hours</span>
+              </div>
+              <div class="route-right">
+                <span class="route-price">From $65</span>
+                <span class="accordion-arrow" aria-hidden="true">›</span>
+              </div>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <div class="accordion-inner-content">
+                  <div class="route-stops">
+                    <h4>Route Stops</h4>
+                    <ol>
+                      <li>Lake Beratan &amp; Ulun Danu Temple</li>
+                      <li>Lake Buyan</li>
+                      <li>Lake Tamblingan</li>
+                      <li>Bedugul Botanical Garden</li>
+                    </ol>
+                  </div>
+                  <div class="pricing-table">
+                    <h4>Pricing</h4>
+                    <table><tbody>
+                      <tr><td>Private car + guide</td><td><strong>$65</strong></td></tr>
+                      <tr><td>Entrance fees</td><td>~$5–8 extra</td></tr>
+                      <tr><td>Fuel &amp; parking</td><td>Included</td></tr>
+                    </tbody></table>
+                  </div>
+                  <button class="btn btn-whatsapp wa-book-btn"
+                          data-wa-package="Nature and Wildlife" data-wa-route="Highland Lakes">
+                    📱 Book via WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       MAP
+  ══════════════════════════════════════ -->
+  <section id="map" class="map-section">
+    <div class="container">
+      <span class="section-label">Explore the Island</span>
+      <h2 class="section-title">Bali Tour Locations</h2>
+      <p class="section-subtitle">Click any marker to discover locations Sri includes in his tours</p>
+      <div class="map-legend" aria-label="Map legend">
+        <span class="legend-item legend-spiritual">● Spiritual</span>
+        <span class="legend-item legend-adventure">● Adventure</span>
+        <span class="legend-item legend-cultural">● Cultural</span>
+        <span class="legend-item legend-beach">● Beach</span>
+        <span class="legend-item legend-nature">● Nature</span>
+      </div>
+    </div>
+    <div id="bali-map" aria-label="Interactive map of Bali tour locations"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Ready to Explore Bali?</h2>
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <p class="contact-intro">Message Sri directly on WhatsApp — typically responds within 1 hour.</p>
+          <a href="https://wa.me/6281246887673?text=Hi%20Sri!%20I%27d%20like%20to%20book%20a%20Bali%20tour."
+             class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
+            <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Chat on WhatsApp
+          </a>
+          <div class="contact-details">
+            <p>📞 +62 812-4688-7673</p>
+            <p>⏰ Available 7:00 – 20:00 WITA (Bali time, UTC+8)</p>
+            <p>📍 Based in Ubud, Bali, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <h3>Booking Information</h3>
+          <ul class="booking-list">
+            <li>All prices in USD; cash payment (IDR accepted)</li>
+            <li>Hotel pick-up from your accommodation included</li>
+            <li>Minimum 24 hours advance booking</li>
+            <li>Custom routes available on request</li>
+            <li>Private tours only — no group sharing</li>
+            <li>Group discounts available for 4+ people</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">🌺</span>
+        <span class="logo-text">Sri Bali Agency</span>
+      </div>
+      <p class="footer-tagline">Private Car Tours in Bali · Est. 2009</p>
+      <p class="footer-copy">&copy; 2025 Sri Bali Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp FAB (visible on mobile) -->
+  <a class="fab-whatsapp"
+     href="https://wa.me/6281246887673"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with Sri on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Leaflet JS (must load before map.js) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/sp8=" crossorigin="" defer></script>
+
+  <!-- Site JS (defer — all execute in order after DOM parsed) -->
+  <script src="js/theme.js"     defer></script>
+  <script src="js/nav.js"       defer></script>
+  <script src="js/tabs.js"      defer></script>
+  <script src="js/accordion.js" defer></script>
+  <script src="js/map.js"       defer></script>
+  <script src="js/whatsapp.js"  defer></script>
+
+</body>
+</html>
